@@ -1,20 +1,26 @@
 <launch>
 
     <!-- set /use_sim_time true if replaying bag  (also remember clock flag for rosbag play) --> 
-    <param name="/use_sim_time" value="true"/>
+	<param name="/use_sim_time" value="true"/>
 
     <!-- uncompress camera feed -->
-    <node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=/raspicam_node/image raw out:=/raspicam_node/image" /> 
+	<node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=/raspicam_node/image raw out:=/raspicam_node/image"/> 
 
     <!-- launch localization (hint: check out the preinstalled "turtlebot3_slam" package) -->
+	<include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch"/>
 
-    <!-- launch object A detector (april tags) --> 
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /home/joe3/rosbag_10feb/dev_bag_090221.bag"/>
+
+    <!-- launch object A detector (april tags) -->
+	<include file="$(find apriltag_ros)/launch/continuous_detection.launch"/>
 
     <!-- launch object B detector (geometric shapes) -->
 
     <!-- launch object C detector (animals) -->
 
     <!-- launch rviz -->
-    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find hk_ros_2021)/rviz_config/hk_ros_2021.rviz"/>
+	<node pkg="rviz" type="rviz" name="rviz1" required="true" args="-d $(find hk_ros_2021)/rviz_config/hk_ros_2021.rviz"/>
+
 
 </launch>
+
