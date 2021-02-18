@@ -9,7 +9,8 @@
     <!-- launch localization (hint: check out the preinstalled "turtlebot3_slam" package) -->
 	<include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch"/>
 
-	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock /home/joe3/rosbag_10feb/dev_bag_090221.bag"/>
+	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -r 3 /home/joe3/rosbag_10feb/dev_bag_090221.bag"/>
+
 
     <!-- launch object A detector (april tags) -->
 	<include file="$(find apriltag_ros)/launch/continuous_detection.launch"/>
