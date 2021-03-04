@@ -4,21 +4,26 @@
 	<param name="/use_sim_time" value="true"/>
 
     <!-- uncompress camera feed -->
-	<node name="republish" type="republish" pkg="image_transport" output="screen" 		args="compressed in:=/raspicam_node/image raw out:=/raspicam_node/image"/> 
+	<node name="republish" type="republish" pkg="image_transport"   	args="compressed in:=/raspicam_node/image raw out:=/raspicam_node/image"/> 
+
+    <!-- Launch a static_frame to get more accurate transformations "static_transform_publisher x y z yaw pitch roll"-->
+    <node pkg="tf" type="static_transform_publisher" name="static_frame_broadcaster" args="0 0 0 0 0 0 /map /static_frame 100" />
 
     <!-- launch localization (hint: check out the preinstalled "turtlebot3_slam" package) -->
 	<include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch"/>
 
-	<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -r 		3 /home/hk4/bagfiles/dev_bag_090221.bag"/>
+
+	<node pkg="rosbag" type="play" name="player" args="--clock -r 		1 /home/hk4/bagfiles/final.bag"/>
 
 
     <!-- launch object A detector (april tags) -->
 	<include file="$(find apriltag_ros)/launch/continuous_detection.launch"/>
-	<!--<node pkg="hk_ros_2021" type="listen.py" name="listener_node" required="true"/> -->
+	<node pkg="hk_ros_2021" type="listen.py" name="listen" output="screen" required="true"/> 
 
     <!-- launch object B detector (geometric shapes) -->
 
     <!-- launch object C detector (animals) -->
+
 
     <!-- launch rviz -->
 	<node pkg="rviz" type="rviz" name="rviz1" required="true" args="-d $(find 		hk_ros_2021)/rviz_config/hk_ros_2021.rviz"/>

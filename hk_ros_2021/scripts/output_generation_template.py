@@ -31,4 +31,3 @@ filename = "latest_output_file.yaml"
 filepath = rospkg.RosPack().get_path('hk_ros_2021') + '/exported_detection_logs/'
 
 with open(filepath + filename, 'w') as outfile:
-    yaml.dump_all(object_list, outfile,explicit_start=True)

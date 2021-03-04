@@ -1,24 +1,43 @@
+XY_pos: [2.310, 8.430]
+obj_type: A
 ---
+#Tag 8
+XY_pos: [2.350, 0.930]
+obj_type: A
+---
+#Tag 9
+XY_pos: [2.900, -0.250]
+obj_type: A
+---
+#Tag 1
+XY_pos: [6.390, 6.900]
+obj_type: A
+---
+
+
+
+
+
 XY_pos: [1.550, 0.550]
 obj_type: B
 ---
 XY_pos: [1.850, -0.790]
 obj_type: B
 ---
-XY_pos: [2.350, 0.930]
-obj_type: A
----
-XY_pos: [2.900, -0.250]
-obj_type: A
----
-XY_pos: [3.590, 7.150]
+XY_pos: [3.580, 5.060]
 obj_type: B
----
-XY_pos: [2.350, 3.130]
-obj_type: C
 ---
 XY_pos: [-1.680, 5.670]
 obj_type: B
+---
+XY_pos: [3.590, 7.150]
+obj_type: B
+
+
+
+---
+XY_pos: [2.350, 3.130]
+obj_type: C
 ---
 XY_pos: [1.590, 4.650]
 obj_type: C
@@ -29,14 +48,8 @@ obj_type: C
 XY_pos: [2.590, 5.925]
 obj_type: C
 ---
-XY_pos: [2.310, 8.430]
-obj_type: A
----
 XY_pos: [3.800, 8.420]
 obj_type: C
----
-XY_pos: [6.390, 6.900]
-obj_type: A
 ---
 XY_pos: [6.390, 7.900]
 obj_type: C
@@ -46,6 +59,4 @@ obj_type: C
 ---
 XY_pos: [6.650, 3.950]
 obj_type: C
----
-XY_pos: [3.580, 5.060]
-obj_type: B
+
